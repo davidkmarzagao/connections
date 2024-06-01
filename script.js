@@ -198,6 +198,7 @@ fetch('data.json', {mode: 'no-cors'})
         cy.on('tap', 'node', function(event) {
             var selectedNode = event.target;
             selectedNode.data('color', selectedColor)
+            selectedNode.style('background-color', selectedColor)
             cy.off('tap', 'node');
         });
     });
