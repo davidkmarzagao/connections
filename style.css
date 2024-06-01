@@ -65,12 +65,11 @@ h1 {
 }
 
 .header a.active {
-  background-color: #72757e;
-  color: #fffffe;
+  color: #2cb67d;
 }
 
 .header a:hover {
-  background-color: #a1a4ac;
+  color: #2cb67d;
 }
 
 .header-right {

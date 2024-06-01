@@ -1,41 +1,20 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html>
-    <head>
-    <title>Consensus Virtualisation</title>
+<head>
+    <title>Consensus Project</title>
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
     <link href="style.css" rel="stylesheet" />
-
-    <!-- For loading external data files -->
-    <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=Promise,fetch"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.21.0/cytoscape.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/elkjs@0.7.1/lib/elk.bundled.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/cytoscape-elk@2.2.0/dist/cytoscape-elk.min.js"></script>
-
-
-    </head>
-    <body>
+</head>
+<body>
     <div class="header">
-        <a href="home.html" class="logo">Consensus</a>
+        <a href="index.html" class="logo">Consensus</a>
         <div class="header-right">
-            <a href="home.html">Home</a>
-            <a class="active" href="index.html">Demo</a>
+            <a class="active" href="index.html">Home</a>
+            <a href="demo.html">Demo</a>
             <a href="documentation.html">Documentation</a>
         </div>
     </div>
-    <div id="toolbar">
-        <button class="btn" id="resetBtn">Reset</button>
-        <button class="btn" id="selectPurpleBtn">Select Starting Purple Node</button>
-        <button class="btn" id="selectGreenBtn">Select Starting Green Node</button>
-        <div class="btn">
-            <label for="colorPicker">Add More Colours: </label>
-            <input  type="color" id="colorPicker">
-        </div>
-        <button class="btn" id="changePBtn">Change P Value</button>
-        <button class="btn" id="animateBtn">Iterate 1 Step</button>
-        <button class="btn" id="simulateBtn">Simulate</button>
-    </div>
-    <div id="cy"></div>
-    <!-- Load application code at the end to ensure DOM is loaded -->
-    <script src="script.js"></script>
-    </body>
+
+</body>
+
 </html>
