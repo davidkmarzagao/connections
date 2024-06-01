@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "cytoscape-elk": "^2.2.0"
+  }
+}
