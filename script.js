@@ -1,6 +1,3 @@
-cytoscape.use( cytoscapeElk );
-
-
 // Fetch edges and nodes 
 fetch('data.json', {mode: 'no-cors'})
 .then(function(res) {
@@ -81,7 +78,7 @@ fetch('data.json', {mode: 'no-cors'})
         });
     };
 
-    function animate() {
+    function iterate() {
         nodes.forEach(function(node) {
             // list of neighbouring nodes 
             var neighbors = node.outgoers('node')   
@@ -102,13 +99,7 @@ fetch('data.json', {mode: 'no-cors'})
                         let chosenNeighbor = neighbors[i]
                         // if chosen neighbouring node is not gray 
                         if(!(chosenNeighbor.data('color') == '#808080')) {
-                            // then turn our current node into the neighbours colour (grabbed)
-                            node.animate({
-                                style: { 'background-color': chosenNeighbor.data('color') }
-                            }, {
-                                duration: 1000 // ms 
-                            });
-                            node.data('color', chosenNeighbor.data('color'))
+                            node.data('new-color', chosenNeighbor.data('color'))
                             //console.log(node.data())
                             //console.log(chosenNeighbor.data())
                         };
@@ -117,6 +108,20 @@ fetch('data.json', {mode: 'no-cors'})
                     };
                 };
             };
+        });
+        changeNodeColors();
+    };
+
+    function changeNodeColors(){
+        nodes.forEach(function(node) {
+            if(node.data('new-color') !== undefined) {
+                node.animate({
+                    style: { 'background-color': node.data('new-color') }
+                }, {
+                    duration: 1000 // ms 
+                });
+                node.data('color', node.data('new-color'))
+            }
         });
     };
     
@@ -135,6 +140,7 @@ fetch('data.json', {mode: 'no-cors'})
                 return false
             };
         };
+        document.getElementById("demoEnd").style.display = "block"; 
         console.log("TRUE")
         return true
     };
@@ -146,10 +152,10 @@ fetch('data.json', {mode: 'no-cors'})
             // give 30 seconds max each iteration for animation 
             setTimeout(function() {
                 if(!result) {
-                    animate();
+                    iterate();
                     result = checkConsensus();
                 }
-            }, 2000 * i);
+            }, 1500 * i);
         };
     }
 
@@ -157,22 +163,67 @@ fetch('data.json', {mode: 'no-cors'})
         location.reload();
     };
 
-    function changePValue() {
-        let pValue;
-        do {
-            pValue = prompt('Please enter a value between 0-1:');
-            if(pValue == null) {
-                console.log('User cancelled the prompt.');
-                break
-            }
-        } while (isNaN(pValue) || pValue < 0 || pValue > 1);
-        cy.edges().forEach(function(edge) {
-            if (edge.source().id() === edge.target().id()) {
-                edge.data('weight', String(pValue))
-            }
-        });
-        normalizeWeights(pValue)
+    function changePValue(pValue) {
+        if(pValue) {
+            cy.edges().forEach(function(edge) {
+                if (edge.source().id() === edge.target().id()) {
+                    edge.data('weight', String(pValue))
+                }
+            });
+            normalizeWeights(pValue)
+        }
     }
+    
+    // modal button stuff 
+    var pValueModal = document.getElementById("pValueModal");
+
+    var pValueBtn = document.getElementById("changePBtn");
+
+    var closeModal = document.getElementById("pValueClose");
+
+    var closeDemoModal = document.getElementById("demoEndClose");
+
+    pValueBtn.onclick = function() {
+        if (document.getElementById('pValueLabel').textContent == 'Not valid. Please enter a value between 0-1:') {
+            document.getElementById('pValueLabel').textContent = 'Please enter a value between 0-1:';
+        }
+
+        pValueModal.style.display = "block"; 
+    }
+
+    closeModal.onclick = function() {
+        pValueModal.style.display = "none"
+    }
+
+    closeDemoModal.onclick = function() {
+        document.getElementById("demoEnd").style.display = "none"; 
+    }
+
+    window.onclick=function(event) {
+        if (event.target == pValueModal) {
+            pValueModal.style.display = "none"
+        } else if (event.target == document.getElementById("demoEnd")) {
+            document.getElementById("demoEnd").style.display = "none";
+        }
+    }
+
+    // change p value in modal through form 
+    var pValueForm = document.getElementById('changePValue')
+
+    pValueForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+        const newPValue = pValueForm.elements.pValue.value; 
+        if (isNaN(newPValue) || newPValue < 0.0 || newPValue > 1.0){
+            document.getElementById('pValueLabel').textContent = 'Not valid. Please enter a value between 0-1:'
+            pValueForm.reset();
+        } else {
+            document.getElementById('pValueLabel').textContent = 'Please enter a value between 0-1:'
+            changePValue(parseFloat(newPValue))
+            pValueModal.style.display = "none";
+        }
+        
+    });
+
 
     // Add event listeners to toolbar buttons
     document.getElementById('resetBtn').addEventListener('click', function() {
@@ -186,9 +237,9 @@ fetch('data.json', {mode: 'no-cors'})
     document.getElementById('simulateBtn').addEventListener('click', function() {
         simulate()
     });
-    document.getElementById('changePBtn').addEventListener('click', function() {
-        changePValue()
-    });
+    // document.getElementById('changePBtn').addEventListener('click', function() {
+    //     changePValue()
+    // });
 
     document.getElementById('colorPicker').addEventListener('input', function(event) {
         // Get the selected color value
@@ -198,6 +249,7 @@ fetch('data.json', {mode: 'no-cors'})
         cy.on('tap', 'node', function(event) {
             var selectedNode = event.target;
             selectedNode.data('color', selectedColor)
+            selectedNode.style('background-color', selectedColor)
             cy.off('tap', 'node');
         });
     });

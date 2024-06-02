@@ -1,14 +1,16 @@
 body {
-    font-family: sans-serif;
+    font-family: "Roboto Mono", sans-serif;
     font-size: 14px;
+    font-weight: 400;
     background-color: #16161a;
+    color: #fffffe;
 }
 #toolbar {
     width: 95%;
     display: flex;
     justify-content: space-between;
     padding: 10px;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid #fffffe;
     position: relative;
     z-index: 10;
 }
@@ -20,23 +22,39 @@ body {
     background-color: #16161a;
 }
 
+h2 {
+    font-family: "Libre Franklin", sans-serif; 
+    overflow: hidden;
+    color: #fffffe;
+    font-size: 25px;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+
 h1 {
     opacity: 1;
+    font-family: "Libre Franklin", sans-serif; 
     font-size: 1em;
+    font-weight:500;
     color: #fffffe;
     text-align: center;
 }
 
 .btn {
-    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     border: none;
     background-color: #7f5af0;
     color: #fffffe;
     cursor: pointer;
-    font-family: sans-serif;
+    font-family: "Roboto Mono", sans-serif;
     margin-right: 10px;
-    border-radius: 12px
+    border-radius: 4px;
 }
+
 .btn:hover {
     background-color: #553ba3;
 }
@@ -65,12 +83,11 @@ h1 {
 }
 
 .header a.active {
-  background-color: #72757e;
-  color: #fffffe;
+  color: #2cb67d;
 }
 
 .header a:hover {
-  background-color: #a1a4ac;
+  color: #2cb67d;
 }
 
 .header-right {
@@ -88,3 +105,62 @@ h1 {
     float: none;
   }
 }
+
+
+
+/* Modal background */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #242629;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border-radius: 4px;
+    width: 80%; /* Could be more or less, depending on screen size */
+    font-family: "Roboto Mono", sans-serif;
+}
+
+/* The Close Button */
+.close {
+    color: #fffffe;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    font-family: "Roboto Mono", sans-serif;
+    
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: 2cb67d;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  label {
+    font-family: "Roboto Mono", sans-serif;
+  }
+
+
+  input[type=text] {
+    width: 80%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    font-family: "Roboto Mono", sans-serif;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    border-radius: 4px;
+  }

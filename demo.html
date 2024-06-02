@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>Consensus Virtualisation</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+    <link href="style.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+
+    <!-- For loading external data files -->
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=Promise,fetch"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.21.0/cytoscape.min.js"></script>
+
+
+    </head>
+    <body>
+    <div class="header">
+        <a href="index.html" class="logo">Consensus<span style="color:#7f5af0">.</span></a>
+        <div class="header-right">
+            <a href="index.html">home</a>
+            <a class="active" href="demo.html">demo</a>
+            <a href="documentation.html">documentation</a>
+        </div>
+    </div>
+    <div id="toolbar">
+        <button class="btn" id="resetBtn">Reset</button>
+        <button class="btn" id="selectPurpleBtn">Assign Purple Node</button>
+        <button class="btn" id="selectGreenBtn">Assign Green Node</button>
+        <div class="btn">
+            <label for="colorPicker">Add Colours </label>
+            <input  type="color" id="colorPicker">
+        </div>
+        <button class="btn" id="changePBtn">Change P Value</button>
+        <button class="btn" id="animateBtn">Iterate 1 Step</button>
+        <button class="btn" id="simulateBtn">Simulate</button>
+    </div>
+
+    <div id="demoEnd" class="modal">
+        <div class="modal-content">
+            <span id="demoEndClose" class="close">&times;</span>
+            <h2>Consensus Reached<span style="color:#7f5af0">.</span></div></h2>
+        </div>
+    </div>
+
+    <!-- Modal form for entering new p value  -->
+    <div id="pValueModal" class="modal">
+        <div class="modal-content">
+            <span id="pValueClose" class="close">&times;</span>
+            <form id="changePValue">
+                <label id="pValueLabel" for="pValue"><b>Please enter a value between 0-1:</b></label>
+                <br> 
+                <input type="text" placeholder="eg. 0.6" name="pValue" required>
+                <br>
+                <button class="btn" type="submit">submit</button>
+            </form>
+        </div>
+    </div>
+
+
+    <div id="cy"></div>
+    <!-- Load application code at the end to ensure DOM is loaded -->
+    <script src="script.js"></script>
+    </body>
+</html>

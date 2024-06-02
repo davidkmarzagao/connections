@@ -4,15 +4,42 @@
     <title>Consensus Documentation</title>
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
     <link href="style.css" rel="stylesheet" />
+    <link href="documentation-style.css" rel="stylesheet"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="header">
-        <a href="home.html" class="logo">Consensus</a>
+        <a href="index.html" class="logo">Consensus<span style="color:#7f5af0">.</span></a>
         <div class="header-right">
-            <a href="home.html">Home</a>
-            <a href="index.html">Demo</a>
-            <a class="active" href="documentation.html">Documentation</a>
+            <a href="index.html">home</a>
+            <a href="demo.html">demo</a>
+            <a class="active" href="documentation.html">documentation</a>
         </div>
+    </div>
+    <div class="main">
+        <h1>1. Introduction</h1>
+        <p>
+            This simulator provides a dynamic and interactive platform to model and analyze how individual votes propagate and influence outcomes in a networked environment. By leveraging the graphical and computational strengths of Cytoscape.js, our tool offers users an intuitive interface to visualize complex voting patterns and explore various scenarios within a connected system. This simulator serves as an invaluable resource for understanding the intricacies of network-based decision-making processes.
+        </p>
+        <p>
+            The simulator is a directed graph of nodes, where nodes can only "pull" from its target. When a node pulls from its target, it will take the target's colour or its "opinion". However, if the the target node is off, then the source node does nothing. Each node has a uniform probability of pulling from any adjacent node. The whole process is synchronous, meaning each node pulls from their neighbout or does nothing at the same time.
+        </p>
+        <br>
+        <h1>2. Getting Started</h1>
+        <p>
+            To observe how different "opinions" interact, we must first assign atleast two different colours to at least two different nodes. On our demo page, there are already two buttons designates for assigning two different colours; blue and purple to nodes, but if you would like to add more colors (observing the result of having more than 3 "opinions"), you may use that button too.
+        </p>
+        <p>
+            The "Iterate 1 Step" button shows the influence of the selected opinions after one iteration through the graph of nodes. By pressing the "Simulate" button, the application will continue to iterate step by step until a consensus is reached. A consensus is reached only when there exists only a single opinion (excluding nodes which are off).
+        </p>
+        <h2>2.1. The p-value</h2>
+        <p>
+            The p-value specifies the probability of a node doing "nothing". Initially, when the p-value is not set, the node's probability of doing nothing is the same as the probability of pulling an "opinion" from a single adjacent node. However, after the p-value is set, the remaining probability is then uniformly distributed to the node's adjacent nodes, thus, the probability of choosing an adjacent node will remain the same as the probability of choosing another adjacent node, however, the probability of not doing anything will be different.
+        </p>
+        <br>
+        <h1>3. Finding the Optimal Solution</h1>
     </div>
 
 </body>
