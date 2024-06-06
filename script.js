@@ -118,7 +118,7 @@ fetch('data.json', {mode: 'no-cors'})
                 node.animate({
                     style: { 'background-color': node.data('new-color') }
                 }, {
-                    duration: 1000 // ms 
+                    duration: 1000/slider.value // ms 
                 });
                 node.data('color', node.data('new-color'))
             }
@@ -146,18 +146,17 @@ fetch('data.json', {mode: 'no-cors'})
     };
 
     function simulate() {
-        // simulate for 50 iterations 
-        let result = false
-        for(let i = 0; i< 50; i++) {
-            // give 30 seconds max each iteration for animation 
-            setTimeout(function() {
-                if(!result) {
-                    iterate();
-                    result = checkConsensus();
-                }
-            }, 1500 * i);
-        };
-    }
+        // give 30 seconds max each iteration for animatio 
+        simulationTimeout = setTimeout(function() {
+            if(!checkConsensus()) {
+                iterate();
+                simulate();
+            }
+            else {
+                return;
+            }
+        }, 1500/slider.value);
+    };
 
     function reloadGraph() {
         location.reload();
@@ -171,8 +170,8 @@ fetch('data.json', {mode: 'no-cors'})
                 }
             });
             normalizeWeights(pValue)
-        }
-    }
+        };
+    };
     
     // modal button stuff 
     var pValueModal = document.getElementById("pValueModal");
@@ -231,7 +230,7 @@ fetch('data.json', {mode: 'no-cors'})
     });
     // animates all nodes for 1 iteration 
     document.getElementById('animateBtn').addEventListener('click', function() {
-        animate()
+        iterate()
     });
     // simulates all nodes for 50 iterations 
     document.getElementById('simulateBtn').addEventListener('click', function() {
@@ -270,4 +269,11 @@ fetch('data.json', {mode: 'no-cors'})
             cy.off('tap', 'node');
         });
     });
+
+    var slider = document.getElementById("myRange");
+
+    // Update the current slider value (each time you drag the slider handle)
+    slider.oninput = function() {
+        console.log(this.value);
+}
 });

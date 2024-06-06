@@ -3,8 +3,8 @@
 <head>
     <title>Consensus Documentation</title>
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
-    <link href="style.css" rel="stylesheet" />
-    <link href="documentation-style.css" rel="stylesheet"/>
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="css/documentation-style.css" rel="stylesheet"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
@@ -18,14 +18,28 @@
             <a class="active" href="documentation.html">documentation</a>
         </div>
     </div>
+
     <div class="main">
-        <h1>1. Introduction</h1>
-        <p>
-            This simulator provides a dynamic and interactive platform to model and analyze how individual votes propagate and influence outcomes in a networked environment. By leveraging the graphical and computational strengths of Cytoscape.js, our tool offers users an intuitive interface to visualize complex voting patterns and explore various scenarios within a connected system. This simulator serves as an invaluable resource for understanding the intricacies of network-based decision-making processes.
-        </p>
-        <p>
-            The simulator is a directed graph of nodes, where nodes can only "pull" from its target. When a node pulls from its target, it will take the target's colour or its "opinion". However, if the the target node is off, then the source node does nothing. Each node has a uniform probability of pulling from any adjacent node. The whole process is synchronous, meaning each node pulls from their neighbout or does nothing at the same time.
-        </p>
+        <div id="container">
+            <div id="left_container">
+                <h1>Introduction to Consensus<span style="color:#7f5af0">.</span></h1>
+                <p>
+                    This simulator provides a dynamic and interactive platform to model and analyze how individual votes propagate and influence outcomes in a networked environment. By leveraging the graphical and computational strengths of Cytoscape.js, our tool offers users an intuitive interface to visualize complex voting patterns and explore various scenarios within a connected system. This simulator serves as an invaluable resource for understanding the intricacies of network-based decision-making processes.
+                </p>
+                <p>
+                    The simulator is a directed graph of nodes, where nodes can only "pull" from its target. When a node pulls from its target, it will take the target's colour or its "opinion". However, if the the target node is off, then the source node does nothing. Each node has a uniform probability of pulling from any adjacent node. The whole process is synchronous, meaning each node pulls from their neighbout or does nothing at the same time.
+                </p>
+                <br>
+                <a href="demo.html">
+                    <button class="btn" id="tryDemo">Try the Demo!</button>
+                </a>
+            </div>
+
+            <div id="right_container">
+                <img src="consensus-graph-icon.png">
+            </div>
+
+        </div>
         <br>
         <h1>2. Getting Started</h1>
         <p>

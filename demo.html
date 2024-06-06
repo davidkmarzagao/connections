@@ -3,7 +3,7 @@
     <head>
     <title>Consensus Virtualisation</title>
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
-    <link href="style.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
@@ -34,6 +34,9 @@
         <button class="btn" id="changePBtn">Change P Value</button>
         <button class="btn" id="animateBtn">Iterate 1 Step</button>
         <button class="btn" id="simulateBtn">Simulate</button>
+        <div class="slidecontainer">
+            <input type="range" min="1.0" max="3.0" step="0.1" value="1.0" class="slider" id="myRange">
+        </div>
     </div>
 
     <div id="demoEnd" class="modal">
@@ -57,8 +60,9 @@
         </div>
     </div>
 
-
-    <div id="cy"></div>
+    <div id="container">
+        <div id="cy"></div>
+    </div>
     <!-- Load application code at the end to ensure DOM is loaded -->
     <script src="script.js"></script>
     </body>
