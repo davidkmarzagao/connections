@@ -1,10 +1,44 @@
 // Fetch edges and nodes 
-fetch('data.json', {mode: 'no-cors'})
-.then(function(res) {
-    return res.json()
-})
-.then(function(data) {
+fetch('Vertices.txt', {mode: 'no-cors'})
+.then(response => response.text())
+.then(contents => {
     // graph set up 
+    var initialElements = [];
+    try {
+        const array = JSON.parse(contents);
+        for (let i = 0; i < 100; i++) {
+            initialElements.push({
+                group: 'nodes',
+                data: {
+                    id: `${i}`,
+                    color: "#808080"
+                }
+            });
+            initialElements.push({
+                group: 'edges',
+                data: {
+                    id: `${i}-${i}`,
+                    source: i,
+                    target: i,
+                    weight : 1,
+                }
+            });
+            for (let c = 0; c<array[i].length; c++) {
+                initialElements.push({
+                    group: 'edges',
+                    data: {
+                        id: `${i}-${array[i][c]}`,
+                        source: i,
+                        target: array[i][c],
+                        weight: 1,
+                    }
+                });
+            };
+        };
+    } catch (error) {
+        console.error("Error parsing JSON:", error);
+    }
+
     var cy = window.cy = cytoscape({
         container: document.getElementById('cy'),
 
@@ -45,12 +79,10 @@ fetch('data.json', {mode: 'no-cors'})
             }
         }
         ],
-
-        elements: data
+        
+        elements: initialElements
     });
-    
-    var nodes = cy.nodes()
-    normalizeWeights()
+
 
     // normalise weights of edges based on nodes neighbours (0.0 <= weight range <= 1.0)
     function normalizeWeights() {
@@ -60,7 +92,7 @@ fetch('data.json', {mode: 'no-cors'})
             pValueEnabled = true
             pValue = arguments[0]
         }
-        nodes.forEach(function(node) {
+        cy.nodes().forEach(function(node) {
             var edges = node.outgoers('edge')
             if(edges.length != 0) {
                 edges.forEach(function(edge) {
@@ -79,7 +111,7 @@ fetch('data.json', {mode: 'no-cors'})
     };
 
     function iterate() {
-        nodes.forEach(function(node) {
+        cy.nodes().forEach(function(node) {
             // list of neighbouring nodes 
             var neighbors = node.outgoers('node')   
             // list of outgoing edges weights from current node 
@@ -113,7 +145,7 @@ fetch('data.json', {mode: 'no-cors'})
     };
 
     function changeNodeColors(){
-        nodes.forEach(function(node) {
+        cy.nodes().forEach(function(node) {
             if(node.data('new-color') !== undefined) {
                 node.animate({
                     style: { 'background-color': node.data('new-color') }
@@ -127,26 +159,18 @@ fetch('data.json', {mode: 'no-cors'})
     
     // only checks consensus for one colour (red or blue)
     function checkConsensus() {
-        var firstNodeValue;
-        for(let i = 0; i< nodes.length; i++) {
-            if(nodes[i].data('color') != '#808080') {
-                firstNodeValue = nodes[i].data('color')
-                console.log(firstNodeValue)
-                break
-            };
-        };
-        for(let i = 0; i< nodes.length; i++) {
-            if((firstNodeValue != nodes[i].data('color')) && (nodes[i].data('color') != '#808080')) {
+        var firstNodeValue = cy.nodes()[0].data('color');
+        for(let i = 0; i< cy.nodes().length; i++) {
+            if((firstNodeValue != cy.nodes()[i].data('color'))) {
                 return false
             };
         };
-        document.getElementById("demoEnd").style.display = "block"; 
-        console.log("TRUE")
+        document.getElementById("demoEnd").style.display = "block"
         return true
     };
 
     function simulate() {
-        // give 30 seconds max each iteration for animatio 
+        // creates a max 1500ms timeout between each iteration 
         simulationTimeout = setTimeout(function() {
             if(!checkConsensus()) {
                 iterate();
@@ -236,15 +260,12 @@ fetch('data.json', {mode: 'no-cors'})
     document.getElementById('simulateBtn').addEventListener('click', function() {
         simulate()
     });
-    // document.getElementById('changePBtn').addEventListener('click', function() {
-    //     changePValue()
-    // });
+
 
     document.getElementById('colorPicker').addEventListener('input', function(event) {
         // Get the selected color value
         const selectedColor = event.target.value;
         // Display the selected color value
-        console.log(selectedColor)
         cy.on('tap', 'node', function(event) {
             var selectedNode = event.target;
             selectedNode.data('color', selectedColor)
@@ -270,10 +291,13 @@ fetch('data.json', {mode: 'no-cors'})
         });
     });
 
-    var slider = document.getElementById("myRange");
+    var slider = document.getElementById("speed-input");
+    var output = document.getElementById("speed-label")
 
     // Update the current slider value (each time you drag the slider handle)
     slider.oninput = function() {
-        console.log(this.value);
-}
+        output.innerHTML = "Speed Multiplier :x" + parseFloat(this.value).toFixed(1);
+    }
+    
+    normalizeWeights()
 });

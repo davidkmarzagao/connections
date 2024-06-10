@@ -31,25 +31,6 @@ body {
     bottom: 4px;
 }
 
-h2 {
-    font-family: "Libre Franklin", sans-serif; 
-    overflow: hidden;
-    color: #fffffe;
-    font-size: 25px;
-    padding: 10px;
-    text-align: center;
-    font-weight: bold;
-}
-
-h1 {
-    opacity: 1;
-    font-family: "Libre Franklin", sans-serif; 
-    font-size: 1em;
-    font-weight:500;
-    color: #fffffe;
-    text-align: center;
-}
-
 .btn {
     padding-left: 20px;
     padding-right: 20px;
@@ -62,6 +43,7 @@ h1 {
     font-family: "Roboto Mono", sans-serif;
     margin-right: 10px;
     border-radius: 4px;
+    font-size: small;
 }
 
 .btn:hover {
@@ -103,6 +85,11 @@ h1 {
   float: right;
 }
 
+#speed-label {
+  margin-bottom: 1%;
+  font-size: x-small;
+}
+
 @media screen and (max-width: 500px) {
   .header a {
     float: none;
@@ -114,8 +101,6 @@ h1 {
     float: none;
   }
 }
-
-
 
 /* Modal background */
 .modal {

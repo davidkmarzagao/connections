@@ -3,8 +3,8 @@
 <head>
     <title>Consensus Documentation</title>
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
-    <link href="css/style.css" rel="stylesheet" />
     <link href="css/documentation-style.css" rel="stylesheet"/>
+    <link href="css/style.css" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
@@ -19,41 +19,119 @@
         </div>
     </div>
 
-    <div class="main">
-        <div id="container">
-            <div id="left_container">
+    <div class="section">
+        <div class="container">
+            <div class="left_container">
                 <h1>Introduction to Consensus<span style="color:#7f5af0">.</span></h1>
                 <p>
-                    This simulator provides a dynamic and interactive platform to model and analyze how individual votes propagate and influence outcomes in a networked environment. By leveraging the graphical and computational strengths of Cytoscape.js, our tool offers users an intuitive interface to visualize complex voting patterns and explore various scenarios within a connected system. This simulator serves as an invaluable resource for understanding the intricacies of network-based decision-making processes.
+                    Our demo acts as a simulator to provide a dynamic and interactive platform to model the problem of 'Consensus'. 
+                    Analysing how individual votes propagate and influence outcomes in a networked environment. Utilising 
+                    <a href="https://js.cytoscape.org/">Cytoscape.js</a>, our tool offers users an intuitive interface to visualise and
+                     explore; an invaluable resource for understanding the intricacies of network-based decision-making processes. 
                 </p>
                 <p>
-                    The simulator is a directed graph of nodes, where nodes can only "pull" from its target. When a node pulls from its target, it will take the target's colour or its "opinion". However, if the the target node is off, then the source node does nothing. Each node has a uniform probability of pulling from any adjacent node. The whole process is synchronous, meaning each node pulls from their neighbout or does nothing at the same time.
+                    The demo consist of a directed graph of nodes. Where through synchronous iterations, nodes can only "pull" from 
+                    its target. When a node pulls from its target it will have a probability of taking the target's colour or maintain it's
+                     own colour ('opinion'). However, if the target node is off, then the source node does nothing. Each node has a uniform 
+                     probability of pulling from any adjacent node. 
                 </p>
                 <br>
                 <a href="demo.html">
-                    <button class="btn" id="tryDemo">Try the Demo!</button>
+                    <button class="demo_btn" id="tryDemo">Try the Demo!</button>
                 </a>
             </div>
 
-            <div id="right_container">
-                <img src="consensus-graph-icon.png">
+            <div class="right_container">
+                <img src="images/consensus-graph-icon.png">
             </div>
 
         </div>
+    </div>
+    <div class="section_gray">
+        <h1>Getting Started</h1>
+        <p>
+            The demo simulator can seem confusing with it's numerous different functions and buttons.
+            Our goal with the simulator is to reach consensus! Whereby our simulation only exists a single
+            'opinion', in other words, all nodes that are 'on' are of one colour.
+        </p>
+        <p>
+            Let's go through how you can observe how different "opinions" interact! 
+        </p>
         <br>
-        <h1>2. Getting Started</h1>
-        <p>
-            To observe how different "opinions" interact, we must first assign atleast two different colours to at least two different nodes. On our demo page, there are already two buttons designates for assigning two different colours; blue and purple to nodes, but if you would like to add more colors (observing the result of having more than 3 "opinions"), you may use that button too.
-        </p>
-        <p>
-            The "Iterate 1 Step" button shows the influence of the selected opinions after one iteration through the graph of nodes. By pressing the "Simulate" button, the application will continue to iterate step by step until a consensus is reached. A consensus is reached only when there exists only a single opinion (excluding nodes which are off).
-        </p>
-        <h2>2.1. The p-value</h2>
-        <p>
-            The p-value specifies the probability of a node doing "nothing". Initially, when the p-value is not set, the node's probability of doing nothing is the same as the probability of pulling an "opinion" from a single adjacent node. However, after the p-value is set, the remaining probability is then uniformly distributed to the node's adjacent nodes, thus, the probability of choosing an adjacent node will remain the same as the probability of choosing another adjacent node, however, the probability of not doing anything will be different.
-        </p>
+
+        <div class="small_container">
+            <h2>Selecting Starting nodes </h2>
+            <p2>
+                Before starting the simulation, first assign at least two different colours to two different nodes. 
+                These colours help represent different 'opinions' within the network of nodes. There are already two 
+                buttons designated for assigning two different colours: purple and green. You can also add a more colours
+                 to observe the effects of having 3 'opinions'.
+            </p2>
+            <h3>
+                This can be achieved with these buttons:
+            </h3>
+            <div class="container">
+                <button class="btn">Assign Purple Node</button>
+                <button class="btn">Assign Green Node</button>
+                <button class="btn">Add Colours</button>
+            </div>
+        </div>
+
+        <div class="small_container">
+            <h2>Iterating</h2>
+            <p2>
+                You can choose to iterate through the simulation manually, one iteration at
+                 a time with each click of a button. This allows you to observe the influence of selected 
+                 'opinions' at your own pace. However, if consensus is reached in one of the iterations, 
+                 it will not display that information to you and you can choose to continue to iterate 
+                 through the graph of nodes. 
+            </p2>
+            <h3>
+                This can be achieved with this button:
+            </h3>
+            <div class="container">
+                <button class="btn">Iterate 1 Step</button>
+            </div>
+        </div>
+
+        <div class="small_container">
+            <h2>Simulating</h2>
+            <p2>
+                You can run the simulation until consensus is reached. 
+                The application will continue to automatically iterate step by step 
+                until a consensus is reached.
+            </p2>
+            <h3>
+                This can be achieved with this button:
+            </h3>
+            <div class="container">
+                <button class="btn">Simulate</button>
+            </div>
+        </div>
+
+        <div class="small_container">
+            <h2>P-Value</h2>
+            <p2>
+                The p-value specifies the probabilities of a node not pulling from a colour.
+                 By default, when the p-value is not set, the node's probability of doing nothing
+                  is the same as the probability of pulling an 'opinion' from a single adjacent node.
+                When you set the p-value, the remaining probability will be uniformly distributed
+                to the node's adjacent nodes. So, the probability of choosing an adjacent node 
+                is the same probability of choosing another adjacent node. However, the probability
+                 of not doing anything will be different. 
+            </p2>
+            <h3>
+                This can be achieved with this button:
+            </h3>
+            <div class="container">
+                <button class="btn">Change P Value</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
         <br>
-        <h1>3. Finding the Optimal Solution</h1>
+        <h1>Finding the Optimal Solution</h1>
     </div>
 
 </body>
