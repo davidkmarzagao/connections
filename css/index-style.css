@@ -1,17 +1,25 @@
-.main {
+body {
+    margin: 0;
+}
+
+.section {
     font-family: "Roboto Mono", sans-serif;
     margin: 0;
     padding: 5%;  
 }
 
-h2 {
-    font-family: "Libre Franklin", sans-serif; 
-    overflow: hidden;
-    color: #fffffe;
-    font-size: large;
-    padding: 10px;
-    text-align: center;
-    font-weight: bold;
+/* small text  */
+small {
+    font-family: "Roboto Mono", sans-serif;
+    text-align: justify;
+    color: #94a1b2;
+}
+
+/* specifications for example svg  */
+img {
+    max-width: 140%;
+    min-width: 100%;
+    height: auto;
 }
 
 h1 {
@@ -23,10 +31,92 @@ h1 {
     text-align: left;
 }
 
+h2 {
+    opacity: 1;
+    font-family: "Libre Franklin", sans-serif; 
+    font-size: x-large;
+    font-weight:bold;
+    color: #fffffe;
+    text-align: left;
+    padding-left:0;
+}
+
 p {
-    width: 100%;
     font-family: "Roboto Mono", sans-serif;
     text-align: left;
     font-size:medium;
     color: #94a1b2;
+}
+
+ul {
+    list-style-type: '> '; 
+    color: #94a1b2;
+    font-size:medium;
+}
+
+.section-gray div {
+    background: #242629;
+}
+  
+.grey-small-container {
+    width: 40%;
+    min-height:210px;
+    max-height:fit-content;
+    inline-size: 40%;
+    overflow-wrap: break-word;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    display: block;
+    background: #242629;
+    border-radius: 3px;
+    padding: 30px;
+    margin:1%;
+    margin-bottom:3%;
+}
+
+.grey-small-container p {
+    padding: 0%; 
+    margin: 0%; 
+}
+
+.grey-small-container h1 {
+    padding: 0%;
+    margin: 0%; 
+}
+
+.left-container {
+    inline-size: 50%;
+    padding-right: 5%;
+}
+
+/* mobile style */
+@media screen and (max-width: 500px) {
+    .section {
+        margin-left: 5%;
+        margin-right: 5%; 
+    }
+
+    .grey-small-container {
+        width:max-content;
+        margin-bottom: 20%;
+    }
+
+    img {
+        padding-top: 10%;
+        padding-right:0%; 
+        width: 220%;
+    }
+
+    .left-container {
+        padding-right: 0;
+        inline-size: auto;
+    }
+
+}
+
+/* tablet style  */
+@media screen and (max-width: 850px) and (min-width: 501px) {
+    .grey-small-container {
+        width:80%;
+    }
 }

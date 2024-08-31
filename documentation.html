@@ -3,51 +3,92 @@
 <head>
     <title>Consensus Documentation</title>
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+
+    <!-- website tab icon  -->
+    <link rel="icon" href="images\consensus-icon.svg" type="image/svg">
+
+    <!-- style sheets  -->
     <link href="css/documentation-style.css" rel="stylesheet"/>
     <link href="css/style.css" rel="stylesheet" />
+
+    <!-- fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+
+    <!--google static icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
+    <!-- icon - hamburger menu (bars) for mobile devices -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
 </head>
 <body>
+    <!-- header -->
     <div class="header">
+        <!-- logo -->
         <a href="index.html" class="logo">Consensus<span style="color:#7f5af0">.</span></a>
-        <div class="header-right">
+
+        <!-- hamburger menu icon only for mobile -->
+        <div class="mobile header-right" id="hamburger-menu-icon"> 
+            <a href="javascript:void(0);" id="hamburger-icon">
+                <i class="fa fa-bars"></i>
+            </a>
+        </div>
+
+        <!-- regular menu for device widths > 500 px  -->
+        <div class="mobile-hide header-right" id="page-menu">
             <a href="index.html">home</a>
             <a href="demo.html">demo</a>
             <a class="active" href="documentation.html">documentation</a>
+            <a href="credits.html">credits</a>
         </div>
     </div>
 
+    <!-- mobile menu that is hidden until the hamburger icon is clicked  -->
+    <div class="mobile header hidden-menu" id="hamburger-menu">
+        <a href="index.html">home</a>
+        <a href="demo.html">demo</a>
+        <a class="active" href="documentation.html">documentation</a>
+        <a href="credits.html">credits</a>
+    </div>
+
+    <!-- Introduction to the demo page -->
     <div class="section">
         <div class="container">
-            <div class="left_container">
-                <h1>Introduction to Consensus<span style="color:#7f5af0">.</span></h1>
+            <!-- text -->
+            <div class="left-container">
+                <h1>Introduction to our Demo<span style="color:#7f5af0">.</span></h1>
                 <p>
                     Our demo acts as a simulator to provide a dynamic and interactive platform to model the problem of 'Consensus'. 
                     Analysing how individual votes propagate and influence outcomes in a networked environment. Utilising 
                     <a href="https://js.cytoscape.org/">Cytoscape.js</a>, our tool offers users an intuitive interface to visualise and
-                     explore; an invaluable resource for understanding the intricacies of network-based decision-making processes. 
+                    explore; an invaluable resource for understanding the intricacies of network-based decision-making processes. 
                 </p>
                 <p>
                     The demo consist of a directed graph of nodes. Where through synchronous iterations, nodes can only "pull" from 
                     its target. When a node pulls from its target it will have a probability of taking the target's colour or maintain it's
-                     own colour ('opinion'). However, if the target node is off, then the source node does nothing. Each node has a uniform 
-                     probability of pulling from any adjacent node. 
+                    own colour ('opinion'). However, if the target node is off, then the source node does nothing. Each node has a uniform 
+                    probability of pulling from any adjacent node. 
                 </p>
                 <br>
-                <a href="demo.html">
-                    <button class="demo_btn" id="tryDemo">Try the Demo!</button>
+                <!-- button linking to demo page -->
+                <a href="demo.html" style="justify-content: center;">
+                    <button class="demo-btn" id="tryDemo">Try the Demo!</button>
                 </a>
+                <br>
             </div>
 
-            <div class="right_container">
+            <div class="right-container" style="display: block;">
                 <img src="images/consensus-graph-icon.png">
             </div>
 
         </div>
     </div>
-    <div class="section_gray">
+
+    <!-- explaining different functionalities of simulation/demo tools  -->
+    <div class="section-gray">
         <h1>Getting Started</h1>
         <p>
             The demo simulator can seem confusing with it's numerous different functions and buttons.
@@ -59,42 +100,44 @@
         </p>
         <br>
 
-        <div class="small_container">
+        <!-- series of small containers that match to a functionality of the demo -->
+            <!-- how to select nodes  -->
+        <div class="black-small-container">
             <h2>Selecting Starting nodes </h2>
             <p2>
                 Before starting the simulation, first assign at least two different colours to two different nodes. 
                 These colours help represent different 'opinions' within the network of nodes. There are already two 
                 buttons designated for assigning two different colours: purple and green. You can also add a more colours
-                 to observe the effects of having 3 'opinions'.
+                to observe the effects of having 3 'opinions'.
             </p2>
             <h3>
                 This can be achieved with these buttons:
             </h3>
-            <div class="container">
+            <div class="container" style="justify-content: left;">
                 <button class="btn">Assign Purple Node</button>
                 <button class="btn">Assign Green Node</button>
                 <button class="btn">Add Colours</button>
             </div>
         </div>
-
-        <div class="small_container">
+            <!-- how to run the simulation -->
+        <div class="black-small-container">
             <h2>Iterating</h2>
             <p2>
                 You can choose to iterate through the simulation manually, one iteration at
-                 a time with each click of a button. This allows you to observe the influence of selected 
-                 'opinions' at your own pace. However, if consensus is reached in one of the iterations, 
-                 it will not display that information to you and you can choose to continue to iterate 
-                 through the graph of nodes. 
+                a time with each click of a button. This allows you to observe the influence of selected 
+                'opinions' at your own pace. However, if consensus is reached in one of the iterations, 
+                it will not display that information to you and you can choose to continue to iterate 
+                through the graph of nodes. 
             </p2>
             <h3>
                 This can be achieved with this button:
             </h3>
-            <div class="container">
+            <div class="container" style="justify-content: left;">
                 <button class="btn">Iterate 1 Step</button>
             </div>
         </div>
 
-        <div class="small_container">
+        <div class="black-small-container">
             <h2>Simulating</h2>
             <p2>
                 You can run the simulation until consensus is reached. 
@@ -104,35 +147,104 @@
             <h3>
                 This can be achieved with this button:
             </h3>
-            <div class="container">
+            <div class="container" style="justify-content: left;">
                 <button class="btn">Simulate</button>
             </div>
         </div>
 
-        <div class="small_container">
+            <!-- how probability works in the game and how to change it  -->
+        <div class="black-small-container">
             <h2>P-Value</h2>
             <p2>
-                The p-value specifies the probabilities of a node not pulling from a colour.
-                 By default, when the p-value is not set, the node's probability of doing nothing
-                  is the same as the probability of pulling an 'opinion' from a single adjacent node.
-                When you set the p-value, the remaining probability will be uniformly distributed
-                to the node's adjacent nodes. So, the probability of choosing an adjacent node 
-                is the same probability of choosing another adjacent node. However, the probability
-                 of not doing anything will be different. 
+                The p-value specifies the probability of a node doing nothing at a given iteration. For example,
+                 if p = 1, for a given node, it never changes its colour. However, if p = 0, it will always pull
+                 the colour from one of it's neighbour (this may include neighbours of the same colour too). 
+                 Otherwise this would also mean if you set the p-value > 0, the remaining probability will be 
+                 uniformly distributed to the node's adjacent nodes. So, the probability of choosing an adjacent
+                 node is the same probability of choosing another adjacent node. By default, when the p-value is not set, 
+                 all probabilities are uniformly distributed between the current node and all it's adjacent neighbours. 
             </p2>
             <h3>
                 This can be achieved with this button:
             </h3>
-            <div class="container">
+            <div class="container" style="justify-content: left;">
                 <button class="btn">Change P Value</button>
+            </div>
+        </div>
+            <!-- how to use the playback system -->
+        <div class="black-small-container">
+            <h2>Observing Simulation History</h2>
+            <p2>
+                During the simulation, there is a pause button to allow you stop the simulator at a specific iteration. 
+                Utilising the 'back' and 'forward' buttons, you can observe how different nodes behave over past 
+                iterations. Due to the randomness of the simulation algorithm, you can not continue the simulation until
+                 you are back at the specific iteration you paused at. If Consensus is reached, you can observe the simulation
+                 history by clicking on the 'back' and 'forwards' buttons before resetting the demo for another simulation.
+                 All without the use of the pause button. 
+
+            </p2>
+            <h3>
+                This can be achieved with these buttons:
+            </h3>
+            <div class="container" style="justify-content: left;">
+                <button class="icon-btn">
+                    <span class="material-symbols-outlined">
+                        keyboard_double_arrow_left
+                    </span>
+                </button>
+
+                <button class="icon-btn" style="margin-right: 1%; margin-left:1%;">
+                    <span class="material-symbols-outlined">
+                        play_pause
+                    </span>
+                </button>
+
+                <button class="icon-btn">
+                    <span class="material-symbols-outlined">
+                        keyboard_double_arrow_right
+                    </span>
+                </button>
+            </div>
+        </div>
+            <!-- how to remove nodes' fade-in effect  -->
+        <div class="black-small-container">
+            <h2>Node Transition Effect</h2>
+            <p2>
+                This an effect created for more aesthetic purposes. 
+                When toggled, it removes the fade transition animation from
+                 all colour-changing nodes when the demo is being simulated. 
+            </p2>
+            <h3>
+                This effect can be achieved with this button:
+            </h3>
+            <div class="container" style="justify-content: left;">
+                <button class="icon-btn">
+                    <span class="material-symbols-outlined">
+                        transition_fade
+                    </span>
+                </button>
             </div>
         </div>
     </div>
 
+    <!-- injected script for hidden hamburger menu functionality on mobile  -->
+    <script src="js/script.js"></script>
+
+<!-- NOT READY TO BE IMPLEMENTED FOR FINAL VERSION  -->
+<!-- This is because there has not been enough content written for it  -->
+<!-- 
     <div class="section">
         <br>
         <h1>Finding the Optimal Solution</h1>
-    </div>
+        <h2>Initial Statistics:</h2>
+        <h3>Random starting variables</h3>
+        <p2>
+            For finding the optimal solution, we will be using the number of iterations taken as out measure of time rather than the real time taken,
+            as the real time taken is relative to the performance capabilities of the user hardware.
+            Before trying to find the optimal solution, lets run some simulations to get an idea of the average number of iterations taken for random starting variables.
+            after 100 simulations, the average number of iterations was.
+        </p2>
+    </div> -->
 
 </body>
 

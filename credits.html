@@ -1,0 +1,90 @@
+<!DOCTYPE html> 
+<html>
+<head>
+    <title>Consensus</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- website tab icon  -->
+    <link rel="icon" href="/images/consensus-graph-icon.png" type="image/png">
+
+    <!-- style sheets -->
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="css/index-style.css" rel="stylesheet" />
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    
+    <!-- icon - hamburger menu (bars) for mobile devices -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body>
+    <!-- header -->
+    <div class="header">
+        <!-- logo -->
+        <a href="index.html" class="logo">Consensus<span style="color:#7f5af0">.</span></a>
+
+        <!-- hamburger menu icon only for mobile -->
+        <div class="mobile header-right" id="hamburger-menu-icon"> 
+            <a href="javascript:void(0);" id="hamburger-icon">
+                <i class="fa fa-bars"></i>
+            </a>
+        </div>
+
+        <!-- regular menu for device widths > 500 px  -->
+        <div class="mobile-hide header-right" id="page-menu">
+            <a href="index.html">home</a>
+            <a href="demo.html">demo</a>
+            <a href="documentation.html">documentation</a>
+            <a class="active" href="credits.html">credits</a>
+        </div>
+    </div>
+
+    <!-- mobile menu that is hidden until the hamburger icon is clicked  -->
+    <div class="mobile header hidden-menu" id="hamburger-menu">
+        <a href="index.html">home</a>
+            <a href="demo.html">demo</a>
+            <a href="documentation.html">documentation</a>
+            <a class="active" href="credits.html">credits</a>
+    </div>
+
+    <!-- about section text  -->
+    <div class="section">
+        <h1>Who is behind Consensus<span style="color:#7f5af0">.</span></h1>
+        <br>
+        <p>Deborah Raphael & Eduardo Colli are academics at University of São Paulo, Brazil. They run `Matemateca', 
+            a collection of interactive mathematical objects that convey interesting theoretical and applied concepts 
+            in a hands-on way. 
+
+            <br><br>
+            
+            <b><a href="https://nms.kcl.ac.uk/josh.murphy">Josh Murphy</a></b> & <b><a href="https://kohan.uk"> David Kohan Marzagão</a></b>
+            are academics at King's College London, UK. They worked with the University 
+            of São Paulo in creating a series of interaction objects to be exhibited in the UK. 
+            
+            <br><br>
+            
+            Bruna Rodrigues da Silva, Gabriel da Silva Navarro & Jhuann Piedro Alves Nogueira are undergraduate students at 
+            University of São Paulo. They created the physical consensus object from scratch, which included the coding of the process, 
+            dealing with a stubborn keypad, making sure the Arduino controlled all the LEDs as expected, and the physical soldering of 
+            more than 300 wires!  
+            
+            
+            <br><br>
+            
+            <b><a href="https://www.linkedin.com/in/avis-fung">Avis Fung</a></b> & <b><a href="https://www.linkedin.com/in/lian-matsuo-95497128a/">Lian Matsuo</a></b> 
+            are undergraduate students in Artificial Intelligence at King’s College London, and built these webpages 
+            and the simulation, which included coding the game mechanics, encoding agent behavior in JavaScript, designing animations,  extending
+             the code to allow for more colours, reproducing the exact layout of the network on the physical object, and creating a bar to 
+             speed up the time of the process. They are also responsible for the documentation and layout of the page. 
+            </p>
+    </div>
+
+    <!-- injected script for hidden hamburger menu functionality on mobile  -->
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>

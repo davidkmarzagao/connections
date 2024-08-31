@@ -1,0 +1,239 @@
+body{
+  overflow:auto;
+  margin:0; 
+}
+#simulator {
+    width: 100%;
+    height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+#cy {
+    position:relative;
+    z-index: 0;
+    overflow:hidden;
+    width: 90vw;
+    height: 70vh;
+}
+
+#toolbar {
+  width: 95%;
+  display: flex;
+  justify-content: space-around;	
+  flex-wrap: wrap;
+  padding: 10px;
+  border-bottom: 1px solid #fffffe;
+  position: relative;
+  z-index: 3;
+}
+
+/* The canvas itself should fill the container */
+canvas#line-graph{
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+  margin: auto;
+}
+
+.slide-container {
+  width: 100%;
+  height: 50px;
+  padding-bottom: 4px;
+  height: fit-content;
+  background: #16161a;
+  display: flex;
+  align-items: center;
+  justify-content:  center;
+}
+
+.padding {
+  padding-left: 2%;
+  padding-right: 2%; 
+}
+
+#speed-label {
+  margin: 0%;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  font-size: small;
+}
+
+.slider {
+	writing-mode: vertical-lr;
+  direction: rtl;
+  appearance: slider-vertical;
+  -webkit-appearance: none;
+  width: 10px;
+  height: 40vh;
+  vertical-align: bottom;
+  background: #94a1b2;
+  border-radius:25px; 
+  border-style: solid;
+  border-color: #010101;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slide-container {
+  width:100%;
+  height:70%;
+  padding:0px;
+  margin: 0px; 
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 25px;
+  background: #7f5af0;
+  border-style: solid;
+  border-color: #010101;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 25px;
+  background: #7f5af0;
+  border-style: solid;
+  border-color: #010101;
+  cursor: pointer;
+}
+
+
+/* Modal background */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 7; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #242629;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border-radius: 4px;
+    width: 80%; /* Could be more or less, depending on screen size */
+    font-family: "Roboto Mono", sans-serif;
+}
+
+/* Modal Content to fit graph  */
+.modal-content#statistics-modal-content {
+  width: 60%; 
+  margin: 0% auto;
+  background-color: #242629;
+  padding: 20px;
+  border-radius: 4px;
+  font-family: "Roboto Mono", sans-serif;
+}
+
+/* The Close Button (x) */
+.close {
+    color: #fffffe;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    font-family: "Roboto Mono", sans-serif;
+    z-index: 30;
+    
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: 2cb67d;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  label {
+    font-family: "Roboto Mono", sans-serif;
+  }
+
+
+  input[type=text] {
+    width: 80%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    font-family: "Roboto Mono", sans-serif;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    border-radius: 4px;
+  }
+
+  @media screen and (max-width: 500px) {
+      /* Modal Content to fit graph  */
+    .modal-content#statistics-modal-content {
+      width: 80%;
+      height: 80%;
+    }
+
+    /* The canvas itself should fill the container */
+    canvas#line-graph{
+      display: block;
+      width: 100% !important;
+      height: 100% !important;
+      margin: auto;
+    }
+  
+    .slider {
+      writing-mode: horizontal-tb;
+      direction: ltr;
+      appearance: slider-horizontal;
+      width: 90vw;
+      height: 13px;
+    }
+
+    .slider::-webkit-slider-thumb {
+      width: 35px;
+      height: 35px;
+      border-radius: 35px;
+    }
+
+    .slider::-moz-range-thumb {
+      width: 35px;
+      height: 35px;
+      border-radius: 35px;
+    }
+
+    #mobile-speed-label {
+      writing-mode: horizontal-tb;
+      text-align: center;
+      text-orientation:unset;
+      margin:auto;
+    }
+
+    small {
+      text-align: center;
+      margin:auto;
+      color: #94a1b2;
+      font-size: xx-small;
+    }
+
+    .modal-content {
+      margin: 60% auto;
+    }
+
+    #cy {
+      height: 65vh; 
+    }
+  }

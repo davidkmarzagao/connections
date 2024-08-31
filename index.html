@@ -1,28 +1,318 @@
 <!DOCTYPE html> 
 <html>
 <head>
-    <title>Consensus Project</title>
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+    <title>Consensus</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- website tab icon  -->
+    <link rel="icon" href="images\consensus-icon.svg" type="image/svg">
+
+    <!-- style sheets -->
     <link href="css/style.css" rel="stylesheet" />
     <link href="css/index-style.css" rel="stylesheet" />
+
+    <!-- fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+
+    <!-- icon - hamburger menu (bars) for mobile devices -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 </head>
 <body>
+    <!-- header -->
     <div class="header">
+        <!-- logo -->
         <a href="index.html" class="logo">Consensus<span style="color:#7f5af0">.</span></a>
-        <div class="header-right">
+
+        <!-- hamburger menu icon only for mobile -->
+        <div class="mobile header-right" id="hamburger-menu-icon"> 
+            <a href="javascript:void(0);" id="hamburger-icon">
+                <i class="fa fa-bars"></i>
+            </a>
+        </div>
+
+        <!-- regular menu for device widths > 500 px  -->
+        <div class="mobile-hide header-right" id="page-menu">
             <a class="active" href="index.html">home</a>
             <a href="demo.html">demo</a>
             <a href="documentation.html">documentation</a>
+            <a href="credits.html">credits</a>
         </div>
     </div>
-    <div class="main">
-        <h1>The problem of reaching</h1>
-        <h1>Consensus<span style="color:#7f5af0"> …</span></h1>
-        <p>A linear voting problem on a network of nodes.</p>
+
+    <!-- mobile menu that is hidden until the hamburger icon is clicked  -->
+    <div class="mobile header hidden-menu" id="hamburger-menu">
+        <a class="active" href="index.html">home</a>
+        <a href="demo.html">demo</a>
+        <a href="documentation.html">documentation</a>
+        <a href="credits.html">credits</a>
     </div>
+
+    <!-- consensus project introduction -->
+    <div class="section">
+        <h1>Instruction to Consensus<span style="color:#7f5af0">.</span></h1>
+        <br>
+        <p>Imagine a group of robots who behave as follows…</p>
+        <br>
+        <ul>
+            <li>A robot picks a colour to display each round. <br/><br/></li>
+
+            <li>
+                It’s possible for robots to be <b>inactive</b>, where it is not 
+                displaying any colour at all. But once a robot is <b>active</b>, it
+                can never go back to being <b>inactive</b>. <br/><br/>
+            </li>
+
+            <li>
+                Each robot picks its colour in the next round based on the proportion
+                of their neighbours’ current colours. For example, the more 
+                'green' neighbours a robot has, the more likely it is to pick 'green' to
+                display itself in the next round. <br/><br/>
+            </li>
+
+            <li>The game ends when all robots have the same colour. This is where
+                 <span style="color:#fffffe">Consensus is Reached</span><span style="color:#7f5af0">.</span><br/><br/></li>
+        </ul>
+        <br> 
+        <p>
+            We can represent this game as a graph, in which robots are nodes, and an 
+            edge between them represents that they are neighbours! 
+
+        </p>
+        <br>
+        <br>
+        <h2>The game<span style="color:#7f5af0">.</span></h2>
+        <h3>Starting</h3>
+        <p>How to play </p>
+        <br>
+        <div class="container" style="justify-content: space-evenly; flex-wrap: wrap;">
+            <div class="grey-small-container">
+                <h1>1</h1>
+                <br>
+                <p> 
+                    All nodes start as “inactive”, coloured grey. Two players, each with their own colour 
+                    (green or purple), decide to activate a number of vertices at the start. They take turns 
+                    selecting vertices by selecting “assign green node” or “assign purple node” and then 
+                    selecting an “inactive” vertex from the graph that they want to be their colour.
+                </p>
+            </div>
+            <div class="grey-small-container">
+                <h1>2</h1>
+                <br>
+                <p>
+                    Once vertices are chosen, the game begins. You can select “simulate” to see the game unfold 
+                    by itself. Alternatively, you can select “iterate 1 step” to see a single round of the game play out.
+                </p>
+            </div>
+            <div class="grey-small-container">
+                <h1>3</h1>
+                <br>
+                <p>
+                    The game may go through hundreds of iterations per run, be patient! 
+                </p>
+            </div>
+            <div class="grey-small-container">
+                <h1>4</h1>
+                <br>
+                <p>
+                    The game ends once all vertices are showing the same colour - this means 
+                    consensus is reached and the player with that colour wins! 
+                </p>
+            </div>
+        </div>
+        <br>
+        <h3>Considerations & motivations</h3>
+        <p>How to increase your chances of winning</p>
+        <br>
+        <div class="container" style="justify-content: space-evenly; flex-wrap: wrap; align-items:left;">
+            <div class="grey-small-container" style="min-height: 70px;">
+                <p>
+                    Explore the documentation page to explore what tools you can use to your advantage!
+                </p>
+            </div>
+            <div class="grey-small-container" style="min-height: 70px;">
+                <p>
+                    At the start of the game, a clever you will choose vertices that are most 
+                    ‘influential’. But what makes a vertex influential? 
+                </p>
+            </div>
+            <div class="grey-small-container" style="min-height: 70px;">
+                <p>
+                    Is it better to be the player to make the first move or to be the second? 
+                </p>
+            </div>
+            <div class="grey-small-container" style="min-height: 70px;">
+                <p>
+                    For a initial starting configuration of a graph, what is the probability 
+                    that a game ends with all robots showing a particular colour, e.g. green? 
+                </p>
+            </div>
+            <div class="grey-small-container" style="min-height: 70px;">
+                <p>Remember, although the players’ initial choice is important, there is also 
+                    some randomness involved, as if the vertices were rolling a die to make decisions. </p>
+            </div>
+        </div>
+        <p>
+            These motivations and considerations serve as a good connection to the next section, in which 
+            we introduce a demo of this problem for you to do some hands-on exploration. 
+        </p>
+        <br>
+        <div class="container">
+            <a href="demo.html" style="margin:auto;">
+                <button class="demo-btn" id="tryDemo">Try the Demo!</button>
+            </a>
+        </div>
+    </div>
+
+    <!-- example section (pc and mobile only) -->
+
+        <!-- game probability example -->
+    <div class="tablet-hide container section-gray" style="padding-left:15%; padding-right: 15%; padding-top: 10%; ">
+        <div class="left-container">
+            <h1 style="text-align: left;">
+                An example of game probability<span style="color:#7f5af0">.</span> 
+            </h1>
+            <p>
+                The graph to the left represents a <span style="color:#fffffe">Consensus</span><span style="color:#7f5af0">.</span> 
+                 game with five nodes and with the probability of taking no action being zero (i.e., p=0). 
+                 1 is green, 2 is off, 3, 4, and 5 are purple. Inactive can become active but not vice-versa.
+                  If a node selects an inactive neighbour, it keep its current colour. 
+                  Node 1 has 50% chance of not changing or becoming blue. Whereas, 3 has 75% chance of staying
+                   blue and 25% of becoming red. 
+            </p>
+        </div>
+        <div class="container" style=" width:fit-content;">
+                <img src="images\consensus-index-example.svg">
+        </div>
+    </div>
+        <!-- physical example of consensus  -->
+    <div class="tablet-hide container section-gray" style="padding-left:15%; padding-right: 15%; padding-bottom: 10%;"> 
+            <!-- this text will only appear on mobile, this is so that the text appears before the example video  -->
+        <div class="mobile right-container" style="padding-bottom: 10%;">
+            <h1 style="text-align:left;">
+                A physical example<span style="color:#7f5af0">.</span>
+            </h1>
+            <p>
+                This is a physical version of the game Consensus. developed by Bruna
+                Rodrigues da Silva, Gabriel da Silva Navarro and Jhuann Piedro Alves
+                Nogueira. As undergraduate students at University of São Paulo, they
+                created the physical consensus object from stratch to be presented at
+                the <a href="https://mathsfest.web.ox.ac.uk/event/cunning-maths">Oxford Maths Festival</a>.
+            </p>
+        </div>
+
+            <!-- consensus video  -->
+        <div class="container">
+            <video width="100%" height=auto controls style="background-color: #16161a; border-radius: 4px;">
+                <source src="videos/Consensus.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        
+            <!-- text to be displayed only for pc devices as this allows the text to appear to the right of the video  -->
+        <div class="mobile-hide right-container">
+            <h1 style="text-align:left;">
+                A physical example<span style="color:#7f5af0">.</span>
+            </h1>
+            <p>
+                This is a physical version of the game Consensus. developed by Bruna
+                Rodrigues da Silva, Gabriel da Silva Navarro and Jhuann Piedro Alves
+                Nogueira. As undergraduate students at University of São Paulo, they
+                created the physical consensus object from stratch to be presented at
+                the <a href="https://mathsfest.web.ox.ac.uk/event/cunning-maths">Oxford Maths Festival</a>.
+            </p>
+        </div>
+    </div>
+
+    <!-- example section (tablet only) -->
+    <div class="tablet mobile-hide container section-gray" style="padding-left:15%; padding-right: 15%; padding-top: 10%; padding-bottom: 10%;">
+        <!-- example of game probability text -->
+        <h1 style="text-align: left;">
+            An example of game probability<span style="color:#7f5af0">.</span> 
+        </h1>
+        <p style="padding-bottom: 10%;">
+            The graph to the left represents a <span style="color:#fffffe">Consensus</span><span style="color:#7f5af0">.</span> 
+                game with five nodes and with the probability of taking no action being zero (i.e., p=0). 
+                1 is green, 2 is off, 3, 4, and 5 are purple. Inactive can become active but not vice-versa.
+                If a node selects an inactive neighbour, it keep its current colour. 
+                Node 1 has 50% chance of not changing or becoming blue. Whereas, 3 has 75% chance of staying
+                blue and 25% of becoming red. 
+        </p>
+        
+        <!-- example of game probability svg  -->
+        <div class="container" style=" width:fit-content; padding-bottom: 10%;">
+            <img src="images\consensus-index-example.svg">
+        </div>
+
+        <!-- physical example of consensus text  -->
+        <h1 style="text-align:left;">
+            A physical example<span style="color:#7f5af0">.</span>
+        </h1>
+        <p style="padding-bottom: 10%;">
+            This is a physical version of the game Consensus. developed by Bruna
+            Rodrigues da Silva, Gabriel da Silva Navarro and Jhuann Piedro Alves
+            Nogueira. As undergraduate students at University of São Paulo, they
+            created the physical consensus object from stratch to be presented at
+            the <a href="https://mathsfest.web.ox.ac.uk/event/cunning-maths">Oxford Maths Festival</a>.
+        </p>
+
+        <!-- physical example of consensus video -->
+        <div class="container">
+            <video width="100%" height=auto controls style="background-color: #16161a; border-radius: 4px;">
+                <source src="videos/Consensus.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+
+    <!-- section elaborating on the open problem of consensus -->
+    <div class="section">
+        <h1> The problem of reaching</h1>
+        <h1> Consensus<span style="color:#7f5af0"> …</span></h1>
+        <br>
+        <p>
+            As with the analogy with robots, consensus problems appear in several different domains. For example, 
+            one may be interested in the spreading of rumours (or diseases!). Or even to study fixation of mutations 
+            in a population. This problem has applications in autonomous systems that need to coordinate as a group 
+            while also making decisions independently.
+        </p>
+        <br>
+        <p>
+            One can look at an example problem in consensus and wonder: which node is the most influential in a 
+            given scenario? More precisely, we can define `influence' as the contribution in probability that a node 
+            being, say, blue, contributes to the probability of blue consensus to take place in the entire network. 
+        </p>
+        <br>
+        <p>
+            Consider a simpler version of this problem in which there are no inactive nodes. 
+            <a href="https://www.sciencedirect.com/science/article/pii/S0890540101930883?ref=pdf_download&fr=RR-2&rr=8b5491f4ec625e00">
+            Hassin and Peleg (2001)
+            </a> 
+            solved the problem of determining the probability of consensus for pretty much all types of network.
+             The magic in that solution is that the influence of a node does not depend on its colours nor the 
+             colours of the other nodes in the network.
+        </p>
+        <br>
+        <p>
+            For situations with inactive nodes, however, that is not the case. The influence of each node does 
+            change depending on the colours of the rest and whether they are active or not. Take into account a 
+            drastic example in which only one node is active and the rest is inactive. In that case, the colour 
+            of the active node has 100% influence on the consensus colour of the network! 
+        </p>
+        <br>
+        <p>
+            Consider then a game in which 2 (or more!) players select one node each in an initially inactive network
+             to turn active and to their colour.
+             <span style="color:#fffffe"> Is it better to choose first or last? What are the best nodes to choose? </span>
+        </p>
+        <br>
+        <br>
+    </div>
+
+    <!-- injected script for hidden hamburger menu functionality on mobile  -->
+    <script src="js/script.js"></script>
 
 </body>
 

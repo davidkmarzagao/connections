@@ -5,30 +5,52 @@ body {
     background-color: #16161a;
     color: #fffffe;
 }
-#toolbar {
-    width: 95%;
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
-    border-bottom: 1px solid #fffffe;
-    position: relative;
-    z-index: 10;
+
+.vertical-container {
+  width: 100%;
+  height: fit-content;
+  display: grid;
+  align-items: center;
+  justify-content:  center;
+
 }
 
-#container {
+.container {
   width: 100%;
-  height: 80%;
+  padding-bottom: 5px;
+  height: fit-content;
+  background: #16161a;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center; 
 }
 
-#cy {
-    width: 90%;
-    height: 75%;
-    position: absolute;
-    background-color: #16161a;
-    bottom: 4px;
+.right-container{
+  display:flex;
+  height: 100%;
+  width:fit-content;
+  flex-direction: column;
+  justify-content: center;
+  align-items:center;
+  top:0px;
+  padding-block: 2%;
+  padding-left: 5%;
+  text-align: left;
+  margin-left: auto; 
+  margin-right: 0;
+}
+
+.left-container{
+  display:flex;
+  height: 100%;
+  width:100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items:center;
+  top:0px;
+  margin-right: auto; 
+  margin-left: 0;
+  text-align: left;
 }
 
 .btn {
@@ -42,12 +64,31 @@ body {
     cursor: pointer;
     font-family: "Roboto Mono", sans-serif;
     margin-right: 10px;
+    margin-bottom: 10px;
     border-radius: 4px;
     font-size: small;
 }
 
 .btn:hover {
     background-color: #553ba3;
+}
+
+.icon-btn {
+  padding-left:8px;
+  padding-right: 8px;
+  padding-top: 8px;
+  padding-bottom: 6px;
+  border: none;
+  background-color: #7f5af0;
+  color: #fffffe;
+  cursor: pointer;
+  font-family: "Roboto Mono", sans-serif;
+  border-radius: 5px;
+  font-size: small;
+}
+
+.icon-btn:hover {
+  background-color: #553ba3;
 }
 
 .header {
@@ -90,71 +131,184 @@ body {
   font-size: x-small;
 }
 
+
+.section-gray {
+    height: fit-content; 
+    width: fit-content;
+    background: #242629;
+    max-width: 100%;
+    padding-left: 5%;
+    padding-right: 5%; 
+    padding-top: 2%;
+    padding-bottom: 2%; 
+}
+
+
+.section-gray h1 {
+    text-align: center;
+    width: 100%;
+    font-size:xx-large;
+    font-family: "Libre Franklin", sans-serif; 
+    color: #fffffe;
+    font-weight: bold;
+}
+
+
+.section-gray h2 {
+    text-align: left;
+    width: 100%;
+    padding:0%;
+    margin-top: 0%;
+    font-size:x-large;
+    font-family: "Libre Franklin", sans-serif; 
+    color: #fffffe;
+    font-weight: bold;
+}
+
+.section-gray h3 {
+    text-align: left;
+    width: 100%;
+    padding:0%;
+    font-size:medium;
+    font-family: "Roboto Mono", sans-serif; 
+    color: #fffffe;
+    font-weight: bold;
+}
+
+.section-gray p {
+    width: 100%;
+    margin-bottom: 2%;
+    font-family: "Roboto Mono", sans-serif;
+    text-align: left;
+    font-size:medium;
+    color: #94a1b2;
+    
+}
+
+.section-gray p2 {
+    width: 100%;
+    margin-bottom: 2%;
+    font-family: "Roboto Mono", sans-serif;
+    text-align: left;
+    font-size:1.05em;
+    color: #94a1b2;
+    
+}
+
+.demo-btn {
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border: none;
+  background-color: #7f5af0;
+  color: #fffffe;
+  cursor: pointer;
+  font-family: "Roboto Mono", sans-serif;
+  margin-right: 10px;
+  border-radius: 4px;
+}
+
+.demo-btn:hover {
+  background-color: #553ba3;
+}
+
+a:hover {
+  color: #2cb67d;
+}
+
+a {
+  color: #94a1b2;
+  text-decoration: none;
+}
+
+.mobile {
+  display: none;
+}
+
+.tablet {
+  display: none;
+}
+
+#hamburger-menu {
+  display: none;
+}
+
 @media screen and (max-width: 500px) {
   .header a {
-    float: none;
+    float: top;
     display: block;
     text-align: left;
   }
-  
-  .header-right {
-    float: none;
+
+  .hidden-menu {
+    float:none; 
   }
-}
 
-/* Modal background */
-.modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
+  .hidden-menu a {
+    float:none; 
+  }
 
-/* Modal Content */
-.modal-content {
-    background-color: #242629;
-    margin: 15% auto; /* 15% from the top and centered */
-    padding: 20px;
-    border-radius: 4px;
-    width: 80%; /* Could be more or less, depending on screen size */
-    font-family: "Roboto Mono", sans-serif;
-}
-
-/* The Close Button */
-.close {
-    color: #fffffe;
+  .header-right#hamburger-icon { 
     float: right;
-    font-size: 28px;
-    font-weight: bold;
-    font-family: "Roboto Mono", sans-serif;
-    
+  }
+
+  .header a.logo {
+    width:min-content
+  }
+
+  .container {
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .demo-btn {
+    margin: 20px;
+    font-size: medium;
+  }
+
+  .section {
+    margin-left: 5%;
+    margin-right:5%; 
+  }
+
+  .section-gray { 
+    padding-left: 10%; 
+    padding-right: 10%; 
+  }
+
+  .mobile {
+    display: block;
+  }
+
+  .mobile-hide {
+    display: none; 
+  }
+
+  .tablet {
+    display: block;
   }
   
-  .close:hover,
-  .close:focus {
-    color: 2cb67d;
-    text-decoration: none;
-    cursor: pointer;
+  .tablet-hide {
+    display: none;
   }
 
-  label {
-    font-family: "Roboto Mono", sans-serif;
+  .icon-btn {
+    padding-left: 3%;
+    padding-right: 3%;
+    margin-bottom: 3%;
+    margin-right: 3%;
   }
+}
 
 
-  input[type=text] {
-    width: 80%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    font-family: "Roboto Mono", sans-serif;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-    border-radius: 4px;
+
+@media screen and (max-width: 850px) and (min-width: 501px) {
+  .tablet {
+    display: block;
   }
+  
+  .tablet-hide {
+    display: none;
+  }
+}
