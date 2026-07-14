@@ -1,0 +1,155 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rep-Tile | Connections.</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- website tab icon  -->
+    <link rel="icon" href="../consensus/images/consensus-icon.svg" type="image/svg">
+
+    <!-- style sheets -->
+    <link href="../shared/css/style.css" rel="stylesheet" />
+    <link href="../shared/css/index-style.css" rel="stylesheet" />
+    <link href="css/override.css" rel="stylesheet" />
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+
+    <!-- icon - hamburger menu (bars) for mobile devices -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <!-- header -->
+    <div class="header">
+        <!-- logo -->
+        <a href="../index.html" class="logo">Connections<span>.</span></a>
+
+        <!-- hamburger menu icon only for mobile -->
+        <div class="mobile header-right" id="hamburger-menu-icon"> 
+            <a href="javascript:void(0);" id="hamburger-icon">
+                <i class="fa fa-bars"></i>
+            </a>
+        </div>
+
+        <!-- regular menu for device widths > 500 px  -->
+        <div class="mobile-hide header-right" id="page-menu">
+            <a href="../index.html">home</a>
+            <a class="active" href="index.html">rep-tile</a>
+            <a href="demo.html">demo</a>
+            <a href="documentation.html">hardware</a>
+            <a href="credits.html">credits</a>
+        </div>
+    </div>
+
+    <!-- mobile menu that is hidden until the hamburger icon is clicked  -->
+    <div class="mobile header hidden-menu" id="hamburger-menu">
+        <a href="../index.html">home</a>
+        <a class="active" href="index.html">rep-tile</a>
+        <a href="demo.html">demo</a>
+        <a href="documentation.html">hardware</a>
+        <a href="credits.html">credits</a>
+    </div>
+
+    <!-- rep-tile introduction -->
+    <div class="section">
+        <div class="container">
+            <div class="left-container">
+                <h1>Introduction to Rep-Tile<span>.</span></h1>
+                <br>
+                <p>
+                    In mathematics, a <strong>rep-tile</strong> (replicating tile) is a shape that can be dissected into smaller copies of itself. 
+                    The game gamifies this concept, asking players to solve geometric puzzles under pressure.
+                </p>
+                <br>
+                <ul>
+                    <li>Two players compete head-to-head: <span class="cyan-text">Blue</span> vs. <span class="red-text">Red</span>. <br/><br/></li>
+                    <li>
+                        In each of the three rounds, the target shape gets progressively more difficult (Easy &rarr; Medium &rarr; Hard). <br/><br/>
+                    </li>
+                    <li>
+                        Players use physical wooden boards and tiles to construct the shape, then submit their solution counts using smart NFC tokens. <br/><br/>
+                    </li>
+                    <li>
+                        The game tracks completion speeds silently, keeping players in suspense until the round timer runs out or both players lock in their ready status. <br/><br/>
+                    </li>
+                </ul>
+            </div>
+            <div class="right-container" style="display: flex; flex-direction: column; align-items: center; gap: 20px;">
+                <img src="images/action-shot.jpeg" style="max-width: 320px; min-width: auto; width: 100%; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.5);" alt="Players interacting with Rep-Tile"/>
+                <img src="images/system-angle.jpg" style="max-width: 320px; min-width: auto; width: 100%; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.5);" alt="Rep-Tile hardware angled view"/>
+            </div>
+        </div>
+        <br>
+
+        <h2>The Game<span>.</span></h2>
+        <h3>Gameplay loop</h3>
+        <p>How to play the physical game</p>
+        <br>
+        <div class="container" style="justify-content: space-evenly; flex-wrap: wrap;">
+            <div class="grey-small-container">
+                <h1>1</h1>
+                <br>
+                <p> 
+                    <strong>Identify Target:</strong> Watch the dual 20x4 LCD screens on the central wall. They will display the name of the target shape for the current round.
+                </p>
+            </div>
+            <div class="grey-small-container">
+                <h1>2</h1>
+                <br>
+                <p>
+                    <strong>Build the Shape:</strong> Use the blank laser-cut tiles on your play mat. Arrange them to construct a larger replica of the target shape.
+                </p>
+            </div>
+            <div class="grey-small-container">
+                <h1>3</h1>
+                <br>
+                <p>
+                    <strong>Count & Slot:</strong> Count how many tiles you used. Take your colored NFC token (Blue or Red) and slot it into the matching numbered reader on the wall.
+                </p>
+            </div>
+            <div class="grey-small-container">
+                <h1>4</h1>
+                <br>
+                <p>
+                    <strong>Score & Win:</strong> The fastest correct player gets +10 points, second gets +5. Any incorrect tag placements subtract −5 points. Highest score wins!
+                </p>
+            </div>
+        </div>
+        <br>
+
+        <h3>Considerations & motivations</h3>
+        <p>How to hone your strategy</p>
+        <br>
+        <div class="container" style="justify-content: space-evenly; flex-wrap: wrap; align-items: left;">
+            <div class="grey-small-container" style="min-height: 70px;">
+                <p>
+                    <strong>Not a Rep-Tile:</strong> Some shapes cannot be tiled. If a shape cannot be constructed out of the available tiles, use Reader 1 ("None") to submit your answer.
+                </p>
+            </div>
+            <div class="grey-small-container" style="min-height: 70px;">
+                <p>
+                    <strong>Risk vs. Speed:</strong> Speed is critical for the +10 point bonus, but submitting a wrong reader costs −5 points. Is it better to double-check or submit immediately?
+                </p>
+            </div>
+            <div class="grey-small-container" style="min-height: 70px;">
+                <p>
+                    <strong>Silent & Blind Race:</strong> The central divider wall completely blocks your view of your opponent's board. You must rely entirely on your own speed and accuracy!
+                </p>
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="container" style="justify-content: flex-start; gap: 15px; flex-wrap: wrap;">
+            <a href="demo.html" class="btn" style="text-decoration: none; display: inline-block;">Try the Demo</a>
+            <a href="documentation.html" class="btn" style="text-decoration: none; display: inline-block; background-color: #333;">Hardware & Specs</a>
+            <a href="documentation.html#build-guide" class="btn" style="text-decoration: none; display: inline-block; background-color: #ff5b5b;">Build it Yourself! &rarr;</a>
+        </div>
+    </div>
+
+    <!-- injected script for hidden hamburger menu functionality on mobile  -->
+    <script src="../shared/js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+/* Override base purple and green theme colors with Rep-Tile Red and Cyan */
+
+/* Accent elements normally purple (#7f5af0) should be Red */
+.logo span,
+h2 span,
+.grey-small-container h1 {
+    color: #ff5b5b !important;
+}
+
+/* Background elements normally purple, and standard buttons */
+.purple-btn,
+.btn {
+    background-color: #ff5b5b !important;
+    color: #fffffe !important;
+}
+
+.btn:hover {
+    background-color: #d64545 !important;
+    color: #fffffe !important;
+}
+
+/* Green elements normally (#2cb67d) should be Cyan */
+a:hover {
+    color: #00f0ff !important;
+}
+
+/* Add custom Cyan highlights */
+.cyan-text {
+    color: #00f0ff;
+}
+
+.red-text {
+    color: #ff5b5b;
+}

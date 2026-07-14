@@ -1,0 +1,83 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rep-Tile Credits | Connections.</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- website tab icon  -->
+    <link rel="icon" href="../consensus/images/consensus-icon.svg" type="image/svg">
+
+    <!-- style sheets -->
+    <link href="../shared/css/style.css" rel="stylesheet" />
+    <link href="../shared/css/index-style.css" rel="stylesheet" />
+    <link href="css/override.css" rel="stylesheet" />
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    
+    <!-- icon - hamburger menu (bars) for mobile devices -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <!-- header -->
+    <div class="header">
+        <!-- logo -->
+        <a href="../index.html" class="logo">Connections<span>.</span></a>
+
+        <!-- hamburger menu icon only for mobile -->
+        <div class="mobile header-right" id="hamburger-menu-icon"> 
+            <a href="javascript:void(0);" id="hamburger-icon">
+                <i class="fa fa-bars"></i>
+            </a>
+        </div>
+
+        <!-- regular menu for device widths > 500 px  -->
+        <div class="mobile-hide header-right" id="page-menu">
+            <a href="../index.html">home</a>
+            <a href="index.html">rep-tile</a>
+            <a href="demo.html">demo</a>
+            <a href="documentation.html">hardware</a>
+            <a class="active" href="credits.html">credits</a>
+        </div>
+    </div>
+
+    <!-- mobile menu that is hidden until the hamburger icon is clicked  -->
+    <div class="mobile header hidden-menu" id="hamburger-menu">
+        <a href="../index.html">home</a>
+        <a href="index.html">rep-tile</a>
+        <a href="demo.html">demo</a>
+        <a href="documentation.html">hardware</a>
+        <a class="active" href="credits.html">credits</a>
+    </div>
+
+    <!-- about section text  -->
+    <div class="section">
+        <h1>Who is behind Rep-Tile<span style="color:#ff5b5b">.</span></h1>
+        <br>
+        <p>
+            Rep-Tile was conceived, designed, and fabricated as an immersive educational exhibit for the 
+            <strong>Oxford Maths Festival</strong> at the University of Oxford Mathematical Institute.
+            
+            <br><br>
+            
+            <b>Vayun Khare</b> and <b>Mahraz Ahmed</b> are the undergraduate students and developers who designed 
+            the physical product from scratch. Over weeks of iterative testing, they designed the CAD models, 3D printed the chassis components, soldered the complex electronics arrays, and wrote the ESP32 embedded software and the web dashboard interface.
+            
+            <br><br>
+            
+            Academics <b><a href="https://kohan.uk" target="_blank">David Kohan Marzagao</a></b> and <b><a href="https://nms.kcl.ac.uk/josh.murphy" target="_blank">Josh Murphy</a></b> are the professors who supervised and mentored the project, facilitating its exhibition at the Oxford Maths Festival on behalf of King's College London and the University of Oxford.
+            
+            <br><br>
+
+            The project was met with overwhelming interest and enthusiasm during the festival, serving as a testament to the power of combining tactile physical hardware, wireless NFC technology, and mathematical play.
+        </p>
+    </div>
+
+    <!-- injected script for hidden hamburger menu functionality on mobile  -->
+    <script src="../shared/js/script.js"></script>
+
+</body>
+</html>

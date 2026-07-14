@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Two Documentation & Guides | Connections.</title>
+    
+    <!-- tab icon  -->
+    <link rel="icon" href="../consensus/images/consensus-icon.svg" type="image/svg">
+
+    <!-- stylesheets -->
+    <link href="../shared/css/style.css" rel="stylesheet" />
+    <link href="../shared/css/documentation-style.css" rel="stylesheet" />
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;600;700;800&family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <!-- header -->
+    <div class="header">
+        <a href="../index.html" class="logo">Connections<span style="color:#7f5af0">.</span></a>
+
+        <!-- hamburger menu icon only for mobile -->
+        <div class="mobile header-right" id="hamburger-menu-icon"> 
+            <a href="javascript:void(0);" id="hamburger-icon">
+                <i class="fa fa-bars"></i>
+            </a>
+        </div>
+
+        <!-- regular menu for device widths > 500 px  -->
+        <div class="mobile-hide header-right" id="page-menu">
+            <a href="../index.html">home</a>
+            <a href="index.html">project two</a>
+            <a href="demo.html">demo</a>
+            <a class="active" href="documentation.html">guides</a>
+        </div>
+    </div>
+
+    <!-- mobile menu that is hidden until the hamburger icon is clicked  -->
+    <div class="mobile header hidden-menu" id="hamburger-menu">
+        <a href="../index.html">home</a>
+        <a href="index.html">project two</a>
+        <a href="demo.html">demo</a>
+        <a class="active" href="documentation.html">guides</a>
+    </div>
+
+    <!-- Main introduction section -->
+    <div class="section">
+        <h1>Build Guides & Documentation<span style="color:#7f5af0">.</span></h1>
+        <br>
+        <p>
+            Here you can find all structural assets, schematics, 3D printing configurations, and step-by-step instructions on how to build Project Two yourself.
+        </p>
+        <br>
+        <br>
+
+        <!-- Guide Sections -->
+        <div class="container" style="flex-wrap: wrap; gap: 20px; justify-content: space-evenly; align-items: stretch;">
+            <div class="grey-small-container" style="flex: 1; min-width: 300px; margin: 0;">
+                <h2>1. 3D Printing Files</h2>
+                <br>
+                <p>Download CAD files and 3D printing models for the chassis and physical enclosures.</p>
+                <br>
+                <div style="font-family: var(--font-mono); font-size: 0.95rem;">
+                    <a href="guides/chassis_base.stl" style="color: #7f5af0; display: block; margin-bottom: 5px;">📥 chassis_base.stl (STL Model)</a>
+                    <a href="guides/sensor_mount.step" style="color: #7f5af0; display: block;">📥 sensor_mount.step (STEP CAD)</a>
+                </div>
+            </div>
+
+            <div class="grey-small-container" style="flex: 1; min-width: 300px; margin: 0;">
+                <h2>2. Electronics & BOM</h2>
+                <br>
+                <p>Detailed pin layouts, wiring configurations, and Bill of Materials (BOM).</p>
+                <br>
+                <ul style="padding-left: 20px; font-size: 0.95rem; line-height: 1.6;">
+                    <li>Microcontroller: ESP32 NodeMCU</li>
+                    <li>Sensors: Ultrasonic distance modules (HC-SR04)</li>
+                    <li>Power: 18650 Li-ion battery pack</li>
+                </ul>
+            </div>
+        </div>
+        <br>
+        <br>
+
+        <a href="index.html" class="btn" style="text-decoration: none;">&larr; Back to Project Info</a>
+    </div>
+
+    <!-- injected script for hidden hamburger menu functionality on mobile  -->
+    <script src="../shared/js/script.js"></script>
+</body>
+</html>

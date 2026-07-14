@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Two | Connections.</title>
+    
+    <!-- tab icon  -->
+    <link rel="icon" href="../consensus/images/consensus-icon.svg" type="image/svg">
+
+    <!-- stylesheets -->
+    <link href="../shared/css/style.css" rel="stylesheet" />
+    <link href="../shared/css/index-style.css" rel="stylesheet" />
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;600;700;800&family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <!-- header -->
+    <div class="header">
+        <a href="../index.html" class="logo">Connections<span style="color:#7f5af0">.</span></a>
+
+        <!-- hamburger menu icon only for mobile -->
+        <div class="mobile header-right" id="hamburger-menu-icon"> 
+            <a href="javascript:void(0);" id="hamburger-icon">
+                <i class="fa fa-bars"></i>
+            </a>
+        </div>
+
+        <!-- regular menu for device widths > 500 px  -->
+        <div class="mobile-hide header-right" id="page-menu">
+            <a href="../index.html">home</a>
+            <a class="active" href="index.html">project two</a>
+            <a href="demo.html">demo</a>
+            <a href="documentation.html">guides</a>
+        </div>
+    </div>
+
+    <!-- mobile menu that is hidden until the hamburger icon is clicked  -->
+    <div class="mobile header hidden-menu" id="hamburger-menu">
+        <a href="../index.html">home</a>
+        <a class="active" href="index.html">project two</a>
+        <a href="demo.html">demo</a>
+        <a href="documentation.html">guides</a>
+    </div>
+
+    <!-- Main introduction section -->
+    <div class="section">
+        <h1>Project Two Title<span style="color:#7f5af0">.</span></h1>
+        <br>
+        <p>
+            This is a replica template showing how future child projects are integrated into the monorepo.
+            Each project has its own self-contained structure, templates, styling, scripts, and build instructions.
+        </p>
+        <br>
+        <br>
+
+        <h2>Hardware Build Guides<span style="color:#7f5af0">.</span></h2>
+        <h3>Downloadable models and fabrication files</h3>
+        <br>
+        <p>
+            This project features custom physical hardware designs. You can find guides and downloadable 3D printing files (.stl or .step) under the <b>guides</b> folder in the project root:
+        </p>
+        <br>
+
+        <div class="container" style="justify-content: flex-start;">
+            <div class="grey-small-container" style="width: 100%; min-height: unset; margin: 0;">
+                <h2 style="font-size: 1.2rem; color: var(--accent-color); padding: 0;">📦 Available Assets in proj2/guides/</h2>
+                <br>
+                <p>- <code>chassis_base.stl</code> - 3D print file for the robot chassis</p>
+                <p>- <code>sensor_mount.step</code> - CAD assembly file for sensor layout</p>
+                <p>- <code>build_instructions.md</code> - Step-by-step soldering & assembly guide</p>
+            </div>
+        </div>
+        <br>
+        <br>
+
+        <a href="demo.html" class="btn" style="text-decoration: none; display: inline-block;">Try the Interactive Demo</a>
+    </div>
+
+    <!-- injected script for hidden hamburger menu functionality on mobile  -->
+    <script src="../shared/js/script.js"></script>
+</body>
+</html>
