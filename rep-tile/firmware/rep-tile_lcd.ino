@@ -150,7 +150,15 @@ Preferences preferences;
 
 // --- Flash Storage ---
 void saveShapesToFlash() {
-  preferences.clear();
+  int prevTotal = preferences.getInt("total", 0);
+
+  // Remove leftover keys from a previous larger shape set without wiping the whole namespace.
+  for (int i = totalShapes; i < prevTotal; i++) {
+    preferences.remove(("n" + String(i)).c_str());
+    preferences.remove(("m" + String(i)).c_str());
+    preferences.remove(("d" + String(i)).c_str());
+  }
+
   preferences.putInt("ver", SHAPES_VERSION);
   preferences.putInt("total", totalShapes);
   for (int i = 0; i < totalShapes; i++) {
