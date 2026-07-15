@@ -1,0 +1,234 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rep-Tile Documentation | Connections.</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+
+    <!-- website tab icon  -->
+    <link rel="icon" href="../consensus/images/consensus-icon.svg" type="image/svg">
+
+    <!-- style sheets  -->
+    <link href="../shared/css/documentation-style.css" rel="stylesheet"/>
+    <link href="../shared/css/style.css" rel="stylesheet" />
+    <link href="css/override.css" rel="stylesheet" />
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+
+    <!-- icon - hamburger menu (bars) for mobile devices -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <!-- header -->
+    <div class="header">
+        <!-- logo -->
+        <a href="../index.html" class="logo">Connections<span>.</span></a>
+
+        <!-- hamburger menu icon only for mobile -->
+        <div class="mobile header-right" id="hamburger-menu-icon"> 
+            <a href="javascript:void(0);" id="hamburger-icon">
+                <i class="fa fa-bars"></i>
+            </a>
+        </div>
+
+        <!-- regular menu for device widths > 500 px  -->
+        <div class="mobile-hide header-right" id="page-menu">
+            <a href="../index.html">home</a>
+            <a href="index.html">rep-tile</a>
+            <a href="demo.html">demo</a>
+            <a class="active" href="documentation.html">hardware</a>
+            <a href="credits.html">credits</a>
+        </div>
+    </div>
+
+    <!-- mobile menu that is hidden until the hamburger icon is clicked  -->
+    <div class="mobile header hidden-menu" id="hamburger-menu">
+        <a href="../index.html">home</a>
+        <a href="index.html">rep-tile</a>
+        <a href="demo.html">demo</a>
+        <a class="active" href="documentation.html">hardware</a>
+        <a href="credits.html">credits</a>
+    </div>
+
+    <!-- Introduction to the hardware page -->
+    <div class="section">
+        <div class="container">
+            <!-- text -->
+            <div class="left-container">
+                <h1>Introduction to the Hardware System<span>.</span></h1>
+                <p>
+                    The physical Rep-Tile device is designed as a standalone educational gaming console. Built around an ESP32 microcontroller, it coordinates multiple custom components, wireless readers, dual displays, sound feedback, and a unified state management button to enable active gameplay.
+                </p>
+                <p>
+                    The unit is housed in a custom CAD-designed, 3D-printed chassis. It supports physical wooden player mats, custom laser-cut tile sets, and smart RFID game tokens that register inputs instantly.
+                </p>
+                <br>
+                <!-- button linking to guides page -->
+                <a href="#build-guide" class="btn" style="text-decoration: none; display: inline-block;">Build it Yourself! &darr;</a>
+                <br>
+            </div>
+
+            <div class="right-container" style="display: block;">
+                <!-- Physical system photo -->
+                <img src="images/system-front.jpeg" style="width: 100%; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.4);" alt="Rep-Tile System Head-on"/>
+            </div>
+        </div>
+    </div>
+
+    <!-- explaining different functionalities of the system -->
+    <div class="section-gray">
+        <h1>The Subsystems</h1>
+        <p>
+            Under the hood, Rep-Tile coordinates several distinct electronics modules over I2C and SPI buses to manage wireless tags and gameplay states.
+        </p>
+        <br>
+
+        <!-- PN532 NFC Array -->
+        <div class="black-small-container">
+            <h2>PN532 NFC Reader Array</h2>
+            <p2>
+                The game features 10 PN532 NFC reader modules sharing the communication lines. Individual white LEDs sit directly above each reader. The system utilizes custom library implementations for high-frequency reader scanning, enabling it to read multiple smart cards simultaneously (up to two per reader node — one Blue and one Red).
+            </p2>
+            <h3>Key Components:</h3>
+            <div class="container" style="justify-content: left; gap: 10px;">
+                <span class="btn" style="cursor: default;">10x PN532 Board</span>
+                <span class="btn" style="cursor: default;">SPI/I2C Multiplexing</span>
+                <span class="btn" style="cursor: default;">Active Indicator LEDs</span>
+            </div>
+        </div>
+
+        <!-- Dual LCD Status Screens -->
+        <div class="black-small-container">
+            <h2>Dual LCD Status Screens</h2>
+            <p2>
+                Two 20x4 I2C character LCD displays are wired together. They share the same address (0x27) and bus to mirror live game status. They display current round targets, ticking game timers, and real-time player scores.
+            </p2>
+            <h3>Display Features:</h3>
+            <div class="container" style="justify-content: left; gap: 10px;">
+                <span class="btn" style="cursor: default;">Dual 20x4 I2C Screens</span>
+                <span class="btn" style="cursor: default;">Mirror Output Layout</span>
+                <span class="btn" style="cursor: default;">Auto Text wrapping</span>
+            </div>
+        </div>
+
+        <!-- Organiser Dashboard Portal -->
+        <div class="black-small-container">
+            <h2>Organiser Dashboard Portal</h2>
+            <p2>
+                The ESP32 hosts a local WiFi access point (SSID: REP-TILE). Connecting to 192.168.4.1 loads the administrator panel, allowing organizers to configure round times, toggle Random/Manual difficulty modes, add/remove shapes, and monitor active reader card states.
+            </p2>
+            <h3>Web Capabilities:</h3>
+            <div class="container" style="justify-content: left; gap: 10px;">
+                <span class="btn" style="cursor: default;">ESP32 AP Host</span>
+                <span class="btn" style="cursor: default;">Live RFID Card Grid</span>
+                <span class="btn" style="cursor: default;">NFC Token Programmer</span>
+            </div>
+        </div>
+
+        <!-- Piezo Audio & State Controls -->
+        <div class="black-small-container">
+            <h2>Piezo Audio & State Controls</h2>
+            <p2>
+                A high-precision piezo buzzer plays musical alerts for gameplay events (countdown beeps, success chimes, round end klaxons). A single physical button acts as a state router, allowing organizers to advance the round, clear scores, or force a hard reset.
+            </p2>
+            <h3>Interfaces:</h3>
+            <div class="container" style="justify-content: left; gap: 10px;">
+                <span class="btn" style="cursor: default;">Active Piezo Buzzer</span>
+                <span class="btn" style="cursor: default;">State Routing Button</span>
+                <span class="btn" style="cursor: default;">Game Over Fanfare</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Downloads Section -->
+    <div class="section">
+        <h1>Fabrication Downloads<span>.</span></h1>
+        <p>Download the CAD models and the Arduino firmware used to drive the Rep-Tile project.</p>
+        <br>
+        
+        <div class="container" style="justify-content: space-between; gap: 20px; align-items: stretch; flex-wrap: wrap;">
+            <div class="grey-small-container" style="flex: 1; min-width: 280px; min-height: unset; margin: 0;">
+                <h2 style="font-size: 1.2rem; color: #ff5b5b; padding: 0;">📦 3D Print Models (.3mf)</h2>
+                <br>
+                <p>Download and slice the custom enclosure components:</p>
+                <br>
+                <div style="font-family: 'Roboto Mono', sans-serif; font-size: 0.9em; line-height: 1.6em;">
+                    <a href="guides/3d-models/answer_token.3mf" download>• Answer Token (x20)</a><br>
+                    <a href="guides/3d-models/base_bottom.3mf" download>• Base Bottom (x1)</a><br>
+                    <a href="guides/3d-models/base_middle_holed.3mf" download>• Base Middle Holed (x2)</a><br>
+                    <a href="guides/3d-models/base_side1.3mf" download>• Base Side 1 (x1)</a><br>
+                    <a href="guides/3d-models/base_side1_with_ports.3mf" download>• Base Side 1 with Ports (x1)</a><br>
+                    <a href="guides/3d-models/base_side2.3mf" download>• Base Side 2 (x2)</a><br>
+                    <a href="guides/3d-models/bottom left (x1).3mf" download>• Bottom Left (x1)</a><br>
+                    <a href="guides/3d-models/bottom middle (x3).3mf" download>• Bottom Middle (x3)</a><br>
+                    <a href="guides/3d-models/bottom right (x1).3mf" download>• Bottom Right (x1)</a><br>
+                    <a href="guides/3d-models/holder v5.3mf" download>• Holder (x20)</a><br>
+                    <a href="guides/3d-models/top left (x1).3mf" download>• Top Left (x1)</a><br>
+                    <a href="guides/3d-models/top middle (x3).3mf" download>• Top Middle (x3)</a><br>
+                    <a href="guides/3d-models/top right (x1).3mf" download>• Top Right (x1)</a>
+                </div>
+            </div>
+
+            <div class="grey-small-container" style="flex: 1; min-width: 280px; min-height: unset; margin: 0;">
+                <h2 style="font-size: 1.2rem; color: #00f0ff; padding: 0;">💻 Embedded Firmware</h2>
+                <br>
+                <p>Arduino sketch and custom PN532 library source files:</p>
+                <br>
+                <div style="font-family: 'Roboto Mono', sans-serif; font-size: 0.9em; line-height: 1.6em;">
+                    <a href="firmware/rep-tile_lcd.ino" download>• rep-tile_lcd.ino</a><br>
+                    <a href="firmware/Adafruit_PN532.cpp" download>• custom PN532 source (.cpp)</a><br>
+                    <a href="firmware/Adafruit_PN532.h" download>• custom PN532 header (.h)</a>
+                </div>
+            </div>
+        </div>
+        <br><br>
+    </div>
+
+    <!-- Build Guide Section -->
+    <div class="section-gray" id="build-guide" style="padding-top: 5%;">
+        <h1>Build Guide: Step-by-Step</h1>
+        <p>Follow these instructions to source, print, assemble, and program your own Rep-Tile game unit.</p>
+        <br>
+
+        <div class="black-small-container">
+            <h2>Step 1: 3D Print the Enclosure</h2>
+            <p2 style="color: #94a1b2;">
+                Download the 13 unique enclosure files listed in the Downloads section above. Slice them using standard slicer software (like Cura or PrusaSlicer) with <strong>PLA or PETG</strong> filament. Print the recommended quantities for each file (e.g., 20 Answer Tokens, 20 Holders, 3 Top/Bottom Middle panels, etc.) for a total of 57 printed parts. We recommend using <strong>20% infill</strong> (gyroid or grid) and enabling supports for panels containing ports.
+            </p2>
+        </div>
+
+        <div class="black-small-container">
+            <h2>Step 2: Wiring and Electronics Assembly</h2>
+            <p2 style="color: #94a1b2;">
+                Connect the components to your ESP32 microcontroller using the following pin map:
+            </p2>
+            <br/><br/>
+            <ul style="color: #94a1b2; font-family: 'Roboto Mono', sans-serif; font-size: medium; line-height: 1.8em;">
+                <li><strong>NFC Readers (PN532):</strong> Share the main SPI bus lines (MOSI, MISO, SCK) and connect individual chip select (SS) pins to separate digital GPIO pins on the ESP32.</li>
+                <li><strong>Dual LCD Screens:</strong> Wire in parallel to the ESP32 hardware I2C bus (SDA and SCL). Use pull-up resistors if necessary.</li>
+                <li><strong>Buzzer & Button:</strong> Connect the piezo buzzer to a PWM-capable GPIO pin, and the tact button to an input pullup digital pin.</li>
+            </ul>
+        </div>
+
+        <div class="black-small-container">
+            <h2>Step 3: Upload the Custom Firmware</h2>
+            <p2 style="color: #94a1b2;">
+                Open the Arduino IDE and ensure the Adafruit_PN532 library is installed. To handle multiple cards simultaneously on the SPI bus without conflicts, copy the custom implementations of <code>Adafruit_PN532.cpp</code> and <code>Adafruit_PN532.h</code> from the Downloads card into your local Arduino libraries folder. Open <code>rep-tile_lcd.ino</code> and upload it to the ESP32.
+            </p2>
+        </div>
+
+        <div class="black-small-container">
+            <h2>Step 4: Organizer Dashboard & Calibration</h2>
+            <p2 style="color: #94a1b2;">
+                Upon boot, search for the WiFi access point named <strong>"REP-TILE"</strong> (password: <code>notareptile</code>) using your computer or phone. Open your browser and navigate to <strong><code>http://192.168.4.1</code></strong>. Toggle write mode in the panel, select Blue/Red, and tap the blank RFID tags against the physical readers to program the player tokens.
+            </p2>
+        </div>
+    </div>
+
+    <!-- injected script for hidden hamburger menu functionality on mobile  -->
+    <script src="../shared/js/script.js"></script>
+</body>
+</html>
